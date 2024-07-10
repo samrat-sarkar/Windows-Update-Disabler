@@ -103,3 +103,53 @@ echo.
 echo All specified services and tasks stopped and disabled.
 
 pause
+
+#### Windows-Update-Restorer.bat
+
+```batch
+@echo off
+:: Batch script to restore Windows services and tasks related to updates
+:: Check if running with administrative privileges
+>nul 2>&1 "%SYSTEMROOT%\system32\cacls.exe" "%SYSTEMROOT%\system32\config\system"
+
+REM If error flag set, we do not have administrative privileges.
+if %errorlevel% NEQ 0 (
+    echo Requesting administrative privileges...
+    goto UACPrompt
+) else (goto gotAdmin)
+
+:UACPrompt
+    echo Set UAC = CreateObject^("Shell.Application"^) > "%temp%\getadmin.vbs"
+    echo UAC.ShellExecute "%~s0", "", "", "runas", 1 >> "%temp%\getadmin.vbs"
+
+    "%temp%\getadmin.vbs"
+    exit /B
+
+:gotAdmin
+    if exist "%temp%\getadmin.vbs" (del "%temp%\getadmin.vbs")
+
+:: Actual script starts here
+echo Restoring Windows services and tasks...
+echo.
+
+:: Enable and start Windows services
+sc config wuauserv start= auto > nul 2>&1
+sc start wuauserv > nul 2>&1
+echo Windows Update service enabled and started.
+
+sc config TrustedInstaller start= manual > nul 2>&1
+sc start TrustedInstaller > nul 2>&1
+echo Windows Modules Installer service enabled and started.
+
+sc config WaasMedicSvc start= manual > nul 2>&1
+sc start WaasMedicSvc > nul 2>&1
+echo Windows Update Medic Service enabled and started.
+
+sc config DiagTrack start= auto > nul 2>&1
+sc start DiagTrack > nul 2>&1
+echo Connected User Experiences and Telemetry service enabled and started.
+
+echo.
+echo All specified services and tasks restored.
+
+pause
