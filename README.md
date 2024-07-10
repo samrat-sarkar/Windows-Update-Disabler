@@ -103,6 +103,8 @@ echo.
 echo All specified services and tasks stopped and disabled.
 
 pause
+```
+### Code
 
 #### Windows-Update-Restorer.bat
 
@@ -153,3 +155,4 @@ echo.
 echo All specified services and tasks restored.
 
 pause
+```
