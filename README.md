@@ -1,56 +1,60 @@
-# Windows Update Disabler
+# 🛡️ Windows Update Disabler
 
+## 📝 Description
 A simple batch script to stop and disable Windows services and tasks related to updates, with an option to restore them. This script requires administrative privileges to run.
 
-## Features
+## ✨ Features
+- 🛑 Stops and disables Windows Update service
+- 🛑 Stops and disables Windows Modules Installer service
+- 🛑 Stops and disables Windows Update Medic Service
+- 🛑 Stops and disables Connected User Experiences and Telemetry service
+- 🛑 Kills Windows Update and WaaSMedic tasks
+- 🔄 Restores the above services and tasks
 
-- Stops and disables Windows Update service
-- Stops and disables Windows Modules Installer service
-- Stops and disables Windows Update Medic Service
-- Stops and disables Connected User Experiences and Telemetry service
-- Kills Windows Update and WaaSMedic tasks
-- Restores the above services and tasks
+## 🚀 Usage
 
-## Usage
-
+### 📥 Installation
 1. Download the script or clone the repository:
-    ```sh
-    git clone https://github.com/samrat-sarkar/Windows-Update-Disabler.git
-    ```
-2. Open a command prompt with administrative privileges.
-3. Navigate to the directory where the script is located.
-4. Run the script to disable services and tasks:
-    ```sh
-    Windows-Update-Disabler.bat
-    ```
-5. Run the script to restore services and tasks:
-    ```sh
-    Windows-Update-Restorer.bat
-    ```
+   ```bash
+   git clone https://github.com/samrat-sarkar/Windows-Update-Disabler.git
+   ```
 
-## Script Details
+### ⚙️ Running the Script
+1. Open a command prompt with administrative privileges
+2. Navigate to the directory where the script is located
+3. Run the script to disable services and tasks:
+   ```bash
+   Windows-Update-Disabler.bat
+   ```
+4. Run the script to restore services and tasks:
+   ```bash
+   Windows-Update-Restorer.bat
+   ```
 
-The scripts check for administrative privileges before executing the following actions:
+## 🔧 Script Details
 
-### Disable Script
+### ⚠️ Prerequisites
+- Administrative privileges
+- Windows operating system
 
-- Stops and disables `wuauserv` (Windows Update service)
-- Stops and disables `TrustedInstaller` (Windows Modules Installer service)
-- Stops and disables `WaasMedicSvc` (Windows Update Medic Service)
-- Stops and disables `DiagTrack` (Connected User Experiences and Telemetry service)
-- Kills `WindowsUpdate.exe` and `WaaSMedic.exe` tasks
+### 🔄 Services Modified
 
-### Restore Script
+#### Disable Script
+- `wuauserv` (Windows Update service)
+- `TrustedInstaller` (Windows Modules Installer service)
+- `WaasMedicSvc` (Windows Update Medic Service)
+- `DiagTrack` (Connected User Experiences and Telemetry service)
+- `WindowsUpdate.exe` and `WaaSMedic.exe` tasks
 
-- Enables and starts `wuauserv` (Windows Update service)
-- Enables and starts `TrustedInstaller` (Windows Modules Installer service)
-- Enables and starts `WaasMedicSvc` (Windows Update Medic Service)
-- Enables and starts `DiagTrack` (Connected User Experiences and Telemetry service)
+#### Restore Script
+- `wuauserv` (Windows Update service)
+- `TrustedInstaller` (Windows Modules Installer service)
+- `WaasMedicSvc` (Windows Update Medic Service)
+- `DiagTrack` (Connected User Experiences and Telemetry service)
 
-### Code
+## 📄 Code Examples
 
-#### Windows-Update-Disabler.bat
-
+### Windows-Update-Disabler.bat
 ```batch
 @echo off
 :: Batch script to stop Windows services and tasks related to updates
@@ -104,10 +108,8 @@ echo All specified services and tasks stopped and disabled.
 
 pause
 ```
-### Code
 
-#### Windows-Update-Restorer.bat
-
+### Windows-Update-Restorer.bat
 ```batch
 @echo off
 :: Batch script to restore Windows services and tasks related to updates
@@ -156,3 +158,17 @@ echo All specified services and tasks restored.
 
 pause
 ```
+
+## ⚠️ Disclaimer
+This script should be used with caution. Disabling Windows Update services may prevent your system from receiving important security updates. Use at your own risk.
+
+## 🤝 Contributing
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## 📄 License
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 👤 Author
+- **Samrat Sarkar**
+  - LinkedIn: [samratsarkar9999](https://www.linkedin.com/in/samratsarkar9999/)
+  - Website: [samratsarkar.in](https://samratsarkar.in/)
