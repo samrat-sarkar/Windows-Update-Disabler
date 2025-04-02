@@ -165,9 +165,6 @@ This script should be used with caution. Disabling Windows Update services may p
 ## 🤝 Contributing
 Contributions are welcome! Please feel free to submit a Pull Request.
 
-## 📄 License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
 ## 👤 Author
 - **Samrat Sarkar**
   - LinkedIn: [samratsarkar9999](https://www.linkedin.com/in/samratsarkar9999/)
